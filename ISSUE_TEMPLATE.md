@@ -1,29 +1,35 @@
-## Description
+<!--- Provide a general summary of the issue in the Title above -->
 
-<!--- Please describe what this PR is going to change -->
+## Expected Behaviour
+<!--- If you're describing a bug, tell us what should happen -->
+<!--- If you're suggesting a change/improvement, tell us how it should work -->
 
-## Why is this needed
+## Current Behaviour
+<!--- If describing a bug, tell us what happens instead of the expected behavior -->
+<!--- If suggesting a change/improvement, explain the difference from current behavior -->
 
-<!--- Link to issue you have raised -->
+## Possible Solution
+<!--- Not obligatory, but suggest a fix/reason for the bug, -->
+<!--- or ideas how to implement the addition or change -->
 
-Fixes: #
+## Steps to Reproduce (for bugs)
+<!--- Provide a link to a live example, or an unambiguous set of steps to -->
+<!--- reproduce this bug. Include code to reproduce, if relevant -->
+1.
+2.
+3.
+4.
 
-## How Has This Been Tested?
-<!--- Please describe in detail how you tested your changes. -->
-<!--- Include details of your testing environment, and the tests you ran to -->
-<!--- see how your change affects other areas of the code, etc. -->
+## Context
+<!--- How has this issue affected you? What are you trying to accomplish? -->
+<!--- Providing context helps us come up with a solution that is most useful in the real world -->
 
 
-## How are existing users impacted? What migration steps/scripts do we need?
+## Your Environment
+<!--- Include as many relevant details about the environment you experienced the bug in -->
 
-<!--- Fixes a bug, unblocks installation, removes a component of the stack etc -->
-<!--- Requires a DB migration script, etc. -->
+* Operating System and version (e.g. Linux, Windows, MacOS):
 
+* How are you running Tinkerbell? Using Vagrant & VirtualBox, Vagrant & Libvirt, on Packet using Terraform, or give details:
 
-## Checklist:
-
-I have:
-
-- [ ] updated the documentation and/or roadmap (if required)
-- [ ] added unit or e2e tests
-- [ ] provided instructions on how to upgrade
+* Link to your project or a code example to reproduce issue:
