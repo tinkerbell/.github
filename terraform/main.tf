@@ -8,13 +8,7 @@ terraform {
   }
 }
 
-variable "github_token" {
-  description = "GitHub token"
-  type        = string
-}
-
 provider "github" {
   token        = var.github_token
   organization = "tinkerbell"
 }
-
