@@ -5,12 +5,14 @@ on:
     paths:
       - 'terraform/**'
   pull_request:
+    paths:
       - 'terraform/**'
 
 jobs:
   terraform:
     defaults:
-      working-directory: ./terraform
+      run:
+        working-directory: ./terraform
     name: "Terraform"
     runs-on: ubuntu-latest
     steps:
