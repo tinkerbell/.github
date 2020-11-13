@@ -3,7 +3,6 @@ name: "Terraform"
 on:
   push:
   pull_request:
-    types: [labeled]
   paths:
     - 'terraform/**'
 
@@ -69,8 +68,8 @@ jobs:
         working-directory: ./terrraform
         if: contains(github.event.pull_request.labels.*.name, 'ci-check/terraform') && steps.plan.outcome == 'failure'
         run: exit 1
-
-      - name: Terraform Apply
-        working-directory: ./terrraform
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+      # We will introduce it as soon as we validate a few PR and see what plan has to say!
+      #- name: Terraform Apply
+        #working-directory: ./terrraform
+        #if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        #run: terraform apply -auto-approve
