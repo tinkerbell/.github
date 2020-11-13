@@ -5,9 +5,12 @@ on:
     paths:
       - 'terraform/**'
   pull_request:
+      - 'terraform/**'
 
 jobs:
   terraform:
+    defaults:
+      working-directory: ./terraform
     name: "Terraform"
     runs-on: ubuntu-latest
     steps:
@@ -21,25 +24,21 @@ jobs:
 
       - name: Terraform Format
         id: fmt
-        working-directory: ./terrraform
         run: terraform fmt -check
 
       - name: Terraform Init
         if: contains(github.event.pull_request.labels.*.name, 'ci-check/terraform') && github.event_name == 'pull_request'
         id: init
-        working-directory: ./terrraform
         run: terraform init
 
       - name: Terraform Plan
         id: plan
         if: contains(github.event.pull_request.labels.*.name, 'ci-check/terraform') && github.event_name == 'pull_request'
-        working-directory: ./terrraform
         run: terraform plan -no-color
         continue-on-error: true
 
       - uses: actions/github-script@0.9.0
         if: github.event_name == 'pull_request'
-        working-directory: ./terrraform
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         with:
@@ -65,11 +64,9 @@ jobs:
             })
 
       - name: Terraform Plan Status
-        working-directory: ./terrraform
         if: contains(github.event.pull_request.labels.*.name, 'ci-check/terraform') && steps.plan.outcome == 'failure'
         run: exit 1
       # We will introduce it as soon as we validate a few PR and see what plan has to say!
       #- name: Terraform Apply
-        #working-directory: ./terrraform
         #if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         #run: terraform apply -auto-approve
