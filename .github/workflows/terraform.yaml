@@ -70,7 +70,6 @@ jobs:
       - name: Terraform Plan Status
         if: contains(github.event.pull_request.labels.*.name, 'ci-check/terraform') && steps.plan.outcome == 'failure'
         run: exit 1
-      # We will introduce it as soon as we validate a few PR and see what plan has to say!
-      #- name: Terraform Apply
-        #if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        #run: terraform apply -auto-approve
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        run: terraform apply -auto-approve
