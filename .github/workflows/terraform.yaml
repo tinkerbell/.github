@@ -6,6 +6,7 @@ on:
       - 'terraform/**'
       - '.github/workflows/terraform.yaml'
   pull_request:
+    types: [opened, synchronize, reopened, labeled]
     paths:
       - 'terraform/**'
       - '.github/workflows/terraform.yaml'
