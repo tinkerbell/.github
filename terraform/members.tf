@@ -6,6 +6,14 @@ resource "github_membership" "benr" {
   username = "benr"
   role     = "admin"
 }
+resource "github_membership" "thelinuxfoundation" {
+  username = "amenowanna"
+  role     = "admin"
+}
+resource "github_membership" "caniszczyk" {
+  username = "amenowanna"
+  role     = "admin"
+}
 resource "github_membership" "bobfraser1" {
   username = "bobfraser1"
 }
