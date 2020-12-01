@@ -11,3 +11,8 @@ terraform {
 provider "github" {
   organization = "tinkerbell"
 }
+
+variable "github_token" {
+  description = "GitHub token"
+  type        = string
+}
