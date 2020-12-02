@@ -2,14 +2,18 @@ name: "Terraform"
 
 on:
   push:
+    branches:
+      - 'master'
     paths:
       - 'terraform/**'
       - '.github/workflows/terraform.yaml'
+      - '.github/workflows/terraform_apply.yaml'
   pull_request:
     types: [opened, synchronize, reopened, labeled]
     paths:
       - 'terraform/**'
       - '.github/workflows/terraform.yaml'
+      - '.github/workflows/terraform_apply.yaml'
 
 jobs:
   terraform:
@@ -75,8 +79,3 @@ jobs:
         env:
           TF_VAR_github_token: ${{ secrets.TF_VAR_GITHUB_TOKEN }}
         run: exit 1
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        env:
-          TF_VAR_github_token: ${{ secrets.TF_VAR_GITHUB_TOKEN }}
-        run: terraform apply -auto-approve
