@@ -6,6 +6,7 @@ on:
       - 'terraform/**'
       - '.github/workflows/terraform.yaml'
   pull_request:
+    types: [opened, synchronize, reopened, labeled]
     paths:
       - 'terraform/**'
       - '.github/workflows/terraform.yaml'
@@ -39,6 +40,8 @@ jobs:
         id: plan
         if: contains(github.event.pull_request.labels.*.name, 'ci-check/terraform') && github.event_name == 'pull_request'
         run: terraform plan -no-color
+        env:
+          TF_VAR_github_token: ${{ secrets.TF_VAR_GITHUB_TOKEN }}
         continue-on-error: true
 
       - uses: actions/github-script@0.9.0
@@ -69,8 +72,11 @@ jobs:
 
       - name: Terraform Plan Status
         if: contains(github.event.pull_request.labels.*.name, 'ci-check/terraform') && steps.plan.outcome == 'failure'
+        env:
+          TF_VAR_github_token: ${{ secrets.TF_VAR_GITHUB_TOKEN }}
         run: exit 1
-      # We will introduce it as soon as we validate a few PR and see what plan has to say!
-      #- name: Terraform Apply
-        #if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        #run: terraform apply -auto-approve
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        env:
+          TF_VAR_github_token: ${{ secrets.TF_VAR_GITHUB_TOKEN }}
+        run: terraform apply -auto-approve
