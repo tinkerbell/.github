@@ -146,8 +146,3 @@ resource "github_team_repository" "devrel_crossplane_provider_tinkerbell" {
   permission = "pull"
   repository = "crossplane-provider-tinkerbell"
 }
-resource "github_team_repository" "devrel_workflows" {
-  team_id    = github_team.devrel.id
-  permission = "admin"
-  repository = "workflows"
-}
