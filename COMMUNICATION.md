@@ -28,7 +28,7 @@ on ongoing or future development.
 - [Google Group: tinkerbell-contributors](https://groups.google.com/g/tinkerbell-contributors)
     - tinkerbell-contributors@googlegroups.com
 
-We have a weekly meeting to sync about ongoing work or discuss about future
+We have a bi-weekly meeting to sync about ongoing work or discuss about future
 development effort around the various components. You will be added to it
 automatically when joining the mailing list. There is an agenda available via
 [Google
