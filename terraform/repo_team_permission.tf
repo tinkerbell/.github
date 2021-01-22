@@ -1,57 +1,27 @@
-resource "github_team_repository" "infracloud_tink" {
-  team_id    = github_team.Infracloud.id
-  permission = "maintain"
-  repository = "tink"
+variable "infracloud_repos" {
+  default = {
+    "maintain" = ["tink", "tinkerbell.org", "boots", "hegel", "osie", "osie-og", "pbnj"],
+    "pull"     = ["portal", "crossplane-provider-tinkerbell"],
+    "push"     = ["tinkerbell-docs"]
+  }
 }
-resource "github_team_repository" "infracloud_tinkerbell_org" {
-  team_id    = github_team.Infracloud.id
-  permission = "maintain"
-  repository = "tinkerbell.org"
+
+locals {
+  infracloud_list = flatten([
+    for permission, repositories in var.infracloud_repos : [
+      for repository in repostiories : {
+        permission = permission
+        repository = repository
+      }
+    ]
+  ])
 }
-resource "github_team_repository" "infracloud_boots" {
+
+resource "github_team_repository" "infracloud" {
   team_id    = github_team.Infracloud.id
-  permission = "maintain"
-  repository = "boots"
-}
-resource "github_team_repository" "infracloud_hegel" {
-  team_id    = github_team.Infracloud.id
-  permission = "maintain"
-  repository = "hegel"
-}
-resource "github_team_repository" "infracloud_osie_og" {
-  team_id    = github_team.Infracloud.id
-  permission = "maintain"
-  repository = "osie-og"
-}
-resource "github_team_repository" "infracloud_osie" {
-  team_id    = github_team.Infracloud.id
-  permission = "maintain"
-  repository = "osie"
-}
-resource "github_team_repository" "infracloud_portal" {
-  team_id    = github_team.Infracloud.id
-  permission = "pull"
-  repository = "portal"
-}
-resource "github_team_repository" "infracloud_pbnj" {
-  team_id    = github_team.Infracloud.id
-  permission = "maintain"
-  repository = "pbnj"
-}
-resource "github_team_repository" "infracloud_github" {
-  team_id    = github_team.Infracloud.id
-  permission = "maintain"
-  repository = ".github"
-}
-resource "github_team_repository" "infracloud_tinkerbell_docs" {
-  team_id    = github_team.Infracloud.id
-  permission = "push"
-  repository = "tinkerbell-docs"
-}
-resource "github_team_repository" "infracloud_crossplane_provider_tinkerbell" {
-  team_id    = github_team.Infracloud.id
-  permission = "pull"
-  repository = "crossplane-provider-tinkerbell"
+  for_each   = local.infracloud_list
+  permission = each.value.permission
+  repository = each.value.repository
 }
 
 
