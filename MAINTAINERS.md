@@ -8,4 +8,4 @@ This file lists the maintainers of the overall Tinkerbell project. The responsib
 | ---- | --------- | ----------- |
 | [Dan Finneran](mailto:daniel.finneran@gmail.com) | [thebsdbox](https://github.com/thebsdbox) | Equinix Metal |
 | [Manuel Mendez](mailto:mmendez@equinix.com) | [mmlb](https://github.com/mmlb) | Equinix Metal |
-| [Gianluca Arbezzano](mailto:ciao@gianarb.it) | [gianarb](https://github.com/gianarb) | Equinix Metal |
+| [Thomas Strömberg](mailto:tstromberg@equinix.com) | [tstromberg](https://github.com/tstromberg) | Equinix Metal |
