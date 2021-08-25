@@ -1,0 +1,134 @@
+---
+default:
+  labels:
+    #
+    # triage/ labels, which describe the outcome from triage. We've chosen to omit triage/accepted, in preference to priority labels.
+    #
+    - color: d455d0
+      description: Indicates an issue is a duplicate of other open issue.
+      name: triage/duplicate
+      target: both
+      previously:
+        - name: duplicate
+    - color: d455d0
+      description: Indicates an issue needs more information in order to work on it.
+      name: triage/needs-information
+      target: both
+    - color: d455d0
+      description: Indicates an issue can not be reproduced as described.
+      name: triage/not-reproducible
+    - color: d455d0
+      description: Indicates an issue that can not or will not be resolved.
+      name: triage/unresolved
+      previously:
+        - name: invalid
+        - name: wontfix
+      target: both
+
+    #
+    # kind/ labels, which denote what kind of issue this is.
+    #
+    - color: e11d21
+      description: Categorizes issue or PR as related to a bug.
+      name: kind/bug
+      previously:
+        - name: bug
+      target: both
+    - color: c7def8
+      description: Categorizes issue or PR as related to cleaning up code, process, or technical debt.
+      name: kind/cleanup
+      previously:
+        - name: cleanup
+      target: both
+    - color: c7def8
+      description: Categorizes issue or PR as related to design.
+      name: kind/design
+      target: both
+    - color: c7def8
+      description: Categorizes issue or PR as related to documentation.
+      name: kind/documentation
+      previously:
+        - name: documentation
+      target: both
+    - color: e11d21
+      description: Categorizes issue or PR as related to a consistently or frequently failing test.
+      name: kind/failing-test
+      target: both
+    - color: c7def8
+      description: Categorizes issue or PR as related to a new feature.
+      name: kind/feature
+      previously:
+        - name: enhancement
+        - name: kind/enhancement
+      target: both
+    - color: e11d21
+      description: Categorizes issue or PR as related to a regression from a prior release.
+      name: kind/regression
+      target: both
+    - color: d455d0
+      description: Categorizes issue or PR as a support question.
+      name: kind/support
+      previously:
+        - name: question
+        - name: triage/support
+
+   # well-known Github labels
+    - color: 7057ff
+      description: Denotes an issue ready for a new contributor, according to the "help wanted" guidelines.
+      name: 'good first issue'
+      previously:
+        - name: for-new-contributors
+      target: issues
+    - color: 006b75
+      description: Denotes an issue that needs help from a contributor. Must meet "help wanted" guidelines.
+      name: 'help wanted'
+      previously:
+        - name: help-wanted
+      target: issues
+
+    # priorities
+    - color: e11d21
+      description: Highest priority. Must be actively worked on as someone's top priority right now. # Stuff is burning. If it's not being actively worked on, someone is expected to drop what they're doing immediately to work on it. Team leaders are responsible for making sure that all the issues, labeled with this priority, in their area are being actively worked on. Examples include user-visible bugs in core features, broken builds or tests and critical security issues.
+      name: priority/critical-urgent
+      target: both
+      previously:
+        - name: P0
+    - color: eb6420
+      description: Must be staffed and worked on either currently, or very soon, ideally in time for the next release.
+      name: priority/important-soon
+      target: both
+      previously:
+        - name: P1
+    - color: eb6420
+      description: Important over the long term, but may not be staffed and/or may need multiple releases to complete.
+      name: priority/important-longterm
+      target: both
+      previously:
+        - name: P2
+    - color: fbca04
+      description: Higher priority than priority/awaiting-more-evidence. # There appears to be general agreement that this would be good to have, but we may not have anyone available to work on it right now or in the immediate future. Community contributions would be most welcome in the mean time (although it might take a while to get them reviewed if reviewers are fully occupied with higher priority issues, for example immediately before a release).
+      name: priority/backlog
+      target: both
+      previously:
+        - name: P3
+    - color: fef2c0
+      description: Lowest priority. Possibly useful, but not yet enough support to actually get it done. # These are mostly place-holders for potentially good ideas, so that they don't get completely forgotten, and can be referenced /deduped every time they come up.
+      name: priority/awaiting-more-evidence
+      target: both
+      previously:
+        - name: P4
+
+    #
+    # Tinkerbell-specific labels which we would like to keep consistent across repos
+    #
+    - color: 46487D
+      description: Items that appear on the roadmap. Implies priority/important-soon or priority/important-longterm.
+      name: roadmap
+      target: both
+    - color: c2e0c6
+      description: Denotes a PR that introduces potentially breaking changes that require user action.
+      name: breaking-change
+      target: both
+      previously:
+        - name: bc-break
+        - name: release-note-action-required
