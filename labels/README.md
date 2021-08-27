@@ -7,11 +7,9 @@ This directory contains labels that are synced across the Tinkerbell project usi
 This will run the label syncer in dry-run mode:
 
 ```
-git clone git@github.com:kubernetes/test-infra.git
-cd test-infra
-
-bazel run //label_sync -- \
-  --config (pwd)/../tinkerbell-gh/labels/labels.yml \
+go get k8s.io/test-infra/label_sync
+label_sync
+  --config labels/labels.yml \
   --token $HOME/.github-token \
   --orgs tinkerbell
 ```
