@@ -24,6 +24,13 @@ default:
         - name: invalid
         - name: wontfix
       target: both
+    - color: ffff00
+      description: Indicates a PR or issue that requires discussion
+      name: triage/discuss
+      previously:
+        - name: discuss
+        - name: triage/needs-discussion
+      target: both
 
     #
     # kind/ labels, which denote what kind of issue this is.
