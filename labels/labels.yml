@@ -78,6 +78,10 @@ default:
       previously:
         - name: question
         - name: triage/support
+    - color: c7def8
+      description: Categorizes issue or PR as related to organization and governance.
+      name: kind/organization
+      target: both
 
    # well-known Github labels
     - color: 7057ff
