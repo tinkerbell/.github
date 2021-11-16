@@ -143,3 +143,11 @@ default:
       previously:
         - name: bc-break
         - name: release-note-action-required
+    - color: 0E8A16
+      description: Signal to Mergify to merge the PR.
+      name: ready-to-merge
+      target: prs
+    - color: B60205
+      description: Signal to Mergify to block merging of the PR.
+      name: do-not-merge
+      target: prs
