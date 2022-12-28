@@ -1,3 +1,81 @@
+labels:
+  # Triage
+  - name: triage/duplicate
+    description: Duplicate of another issue
+    color: D455D0
+  - name: duplicate
+    new_name: triage/duplicate
+
+  - name: triage/needs-information
+    description: Requires additional information
+    color: D455D0
+
+  - name: triage/wont-resolve
+    description: Can not/will not be resolved
+    color: D455D0
+  - name: invalid
+    new_name: triage/unresolved
+  - name: wontfix
+    new_name: triage/unresolved
+  - name: triage/unresolved
+    new_name: triage/wont-resolve
+
+  # Kinds
+  - name: kind/bug
+    color: E11D21
+  - name: bug
+    new_name: kind/bug
+
+  - name: kind/cleanup
+    description: Code cleanup/technical debt
+    color: C7DEF8
+  - name: cleanup
+    new_name: kind/cleanup
+
+  - name: kind/documentation
+    color: C7DEF8
+  - name: documentation
+    new_name: kind/documentation
+
+  - name: kind/feature
+    description: New functionality
+    color: C7DEF8
+  - name: enhancement
+    new_name: kind/feature
+  - name: kind/enhancement
+    new_name: kind/feature
+
+  - name: kind/question
+    color: C7DEF8
+  - name: triage/support
+    new_name: kind/question
+  - name: question
+    new_name: kind/question
+  - name: kind/support
+    new_name: kind/question
+
+  # Community Indicators
+  - name: "good first issue"
+    description: Appropriate for a new contributor
+    color: 7057FF
+  - name: for-new-contributors
+    new_name: "good first issue"
+
+  - name: "help wanted"
+    desrciption: Needs help from a contributor
+    color: 006B75
+  - name: help-wanted
+    new_name: "help wanted"
+
+  # Mergify Bot
+  - name: ready-to-merge
+    description: Signal Mergify to merge the PR
+    color: 0E8A16
+
+  - name: do-not-merge
+    description: Signal Mergify to block merging of the PR
+    color: B60205
+
 branches:
   - name: main
     protection:
@@ -7,8 +85,5 @@ branches:
         require_code_owner_reviews: true
       required_status_checks:
         strict: true
-        contexts:
-          - continuous-integration/drone/pr
-          - DCO
-          - Summary
+        contexts: ["DCO", "Summary"]
       enforce_admins: true
