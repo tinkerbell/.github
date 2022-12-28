@@ -11,7 +11,7 @@ labels:
     color: D455D0
 
   - name: triage/wont-resolve
-    description: Can not/will not be resolved.
+    description: Can not/will not be resolved
     color: D455D0
   - name: invalid
     new_name: triage/unresolved
