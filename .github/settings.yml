@@ -3,8 +3,8 @@ labels:
   - name: triage/duplicate
     description: Duplicate of another issue
     color: D455D0
-  - name: triage/duplicate
-    new_name: duplicate
+  - name: duplicate
+    new_name: triage/duplicate
 
   - name: triage/needs-information
     description: Requires additional information
