@@ -75,6 +75,10 @@ labels:
   - name: do-not-merge
     description: Signal Mergify to block merging of the PR
     color: B60205
+    
+  # Test labels
+  - name: im-a-test
+    color: B60205
 
 branches:
   - name: main
