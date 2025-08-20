@@ -2,10 +2,6 @@
 
 <!--- Please describe what this PR is going to change -->
 
-## Why is this needed
-
-<!--- Link to issue you have raised -->
-
 Fixes: #
 
 ## How Has This Been Tested?
@@ -16,7 +12,7 @@ Fixes: #
 
 ## How are existing users impacted? What migration steps/scripts do we need?
 
-<!--- Fixes a bug, unblocks installation, removes a component of the stack etc -->
+<!--- Fixes a bug, unblocks installation, removes a component of the stack, etc -->
 <!--- Requires a DB migration script, etc. -->
 
 
